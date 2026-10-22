@@ -5,23 +5,21 @@ export class SimulacaoService {
   calcularRendaFixa(dados: any) {
     const { aporteInicial, aporteMensal, taxaAnual, prazoMeses } = dados;
 
-    // 1. Converte a taxa anual (%) para taxa mensal em decimal
+    // Converte taxa anual (%) para taxa mensal equivalente em decimal
     const taxaMensalAplicada = Math.pow(1 + taxaAnual / 100, 1 / 12) - 1;
 
-    // 2. Variáveis de controle
     let montanteBruto = aporteInicial;
     let totalInvestido = aporteInicial;
 
-    // 3. Laço de repetição (for) para rodar mês a mês
+    // Laço for mês a mês somando o aporte mensal e aplicando juros
     for (let mes = 1; mes <= prazoMeses; mes++) {
-      montanteBruto += aporteMensal; // Adiciona o depósito do mês
-      montanteBruto += montanteBruto * taxaMensalAplicada; // Aplica os juros do mês sobre o novo saldo
-      totalInvestido += aporteMensal; // Guarda o total que saiu do bolso
+      montanteBruto += aporteMensal;
+      montanteBruto += montanteBruto * taxaMensalAplicada;
+      totalInvestido += aporteMensal;
     }
 
     const totalJuros = montanteBruto - totalInvestido;
 
-    // 4. Retorna no formato JSON exigido pelo enunciado
     return {
       resumo: {
         totalInvestido: Number(totalInvestido.toFixed(2)),
