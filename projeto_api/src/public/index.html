@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Controle Financeiro - ODS 12</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topo">
+    <h1>Saúde Financeira</h1>
+    <p>Consumo Consciente e Controle Pessoal (ODS 12)</p>
+  </header>
+
+  <main class="container">
+    <!-- Dashboard de Saúde Financeira -->
+    <section aria-labelledby="titulo-metricas">
+      <h2 id="titulo-metricas">Painel de Métricas</h2>
+      <div class="metricas-grid">
+        <article class="card-metrica">
+          <span>Saldo Total</span>
+          <strong id="saldo-total">R$ 0,00</strong>
+        </article>
+        <article class="card-metrica">
+          <span>Total de Despesas</span>
+          <strong id="total-despesas">R$ 0,00</strong>
+        </article>
+        <article class="card-metrica card-impulso">
+          <span>Total Gasto por Impulso</span>
+          <strong id="total-impulso">R$ 0,00</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- Formulário de Cadastro -->
+    <section class="card-secao" aria-labelledby="titulo-form">
+      <h2 id="titulo-form">Nova Transação</h2>
+      <form id="form-transacao">
+        <div class="campo">
+          <label for="descricao">Descrição</label>
+          <input type="text" id="descricao" required placeholder="Ex: Supermercado" />
+        </div>
+
+        <div class="campo">
+          <label for="valor">Valor (R$)</label>
+          <input type="number" id="valor" step="0.01" min="0.01" required placeholder="0,00" />
+        </div>
+
+        <div class="campo">
+          <label for="tipo">Tipo</label>
+          <select id="tipo" required>
+            <option value="despesa">Despesa</option>
+            <option value="receita">Receita</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="categoria">Categoria</label>
+          <input type="text" id="categoria" required placeholder="Ex: Alimentação" />
+        </div>
+
+        <div class="campo-radio" id="grupo-consumo">
+          <label>
+            <input type="radio" name="consumoConsciente" value="true" checked />
+            Gasto Consciente (Essencial)
+          </label>
+          <label>
+            <input type="radio" name="consumoConsciente" value="false" />
+            Gasto por Impulso
+          </label>
+        </div>
+
+        <button type="submit" class="btn-salvar">Salvar Transação</button>
+      </form>
+    </section>
+
+    <!-- Extrato (Histórico) -->
+    <section class="card-secao" aria-labelledby="titulo-historico">
+      <h2 id="titulo-historico">Extrato (Histórico)</h2>
+      <ul id="lista-historico" class="lista-historico">
+        <li class="vazio">Carregando lançamentos...</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+:root {
+  --bg-page: #f4f6f8;
+  --bg-card: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --primary: #0f766e;
+  --primary-hover: #115e59;
+  --danger: #dc2626;
+  --danger-bg: #fef2f2;
+  --success: #15803d;
+  --border: #e2e8f0;
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.topo {
+  background-color: var(--primary);
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h2 { font-size: 1.1rem; margin-bottom: 8px; }
+
+.metricas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.card-metrica {
+  background: var(--bg-card);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-metrica span { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
+.card-metrica strong { font-size: 1.3rem; }
+
+/* Destaque em vermelho exigido para Gasto por Impulso */
+.card-impulso {
+  background-color: var(--danger-bg);
+  border: 1px solid var(--danger);
+}
+.card-impulso span, .card-impulso strong {
+  color: var(--danger);
+}
+
+.card-secao {
+  background: var(--bg-card);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+#form-transacao {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.campo label { font-size: 0.85rem; font-weight: 600; }
+.campo input, .campo select {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.campo-radio {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.btn-salvar {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-salvar:hover { background-color: var(--primary-hover); }
+
+.lista-historico {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-historico {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+}
+.item-info small { color: var(--text-muted); font-size: 0.8rem; }
+
+.badge-impulso {
+  font-size: 0.7rem;
+  color: var(--danger);
+  background: var(--danger-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  width: fit-content;
+  margin-top: 2px;
+}
+
+.val-receita { color: var(--success); font-weight: bold; }
+.val-despesa { color: var(--danger); font-weight: bold; }
+
+@media (min-width: 600px) {
+  .metricas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
